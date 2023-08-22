@@ -7,7 +7,7 @@ import com.travel.Passenger.StandardPassenger;
 
 public class PassengerFactory{
 
-    public Passenger getPassenger(PassengerType pt, String name, int passengerNo){
+    public static Passenger getPassenger(PassengerType pt, String name, String passengerNo){
         if(pt == PassengerType.GOLD){
             return new GoldPassenger(name, passengerNo);
         }

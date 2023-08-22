@@ -6,9 +6,9 @@ import com.travel.TravelPackage.Activity;
 
 public abstract class Passenger {
     String name;
-    int passengerNo;
+    String passengerNo;
     ArrayList<Activity> activities;
-    public Passenger(String name, int passengerNo){
+    public Passenger(String name, String passengerNo){
         this.name=name;
         this.passengerNo=passengerNo;
         this.activities = new ArrayList<>();
@@ -24,5 +24,8 @@ public abstract class Passenger {
         this.activities.add(a);
         a.reduceCapacity();
         return true;
+      }
+      public String getPassengerNo() {
+          return passengerNo;
       }
 }

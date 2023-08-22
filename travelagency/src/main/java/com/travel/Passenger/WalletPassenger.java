@@ -5,7 +5,7 @@ import com.travel.TravelPackage.Activity;
 public abstract class WalletPassenger extends Passenger{
     private double balance = 0;
     private double discountPercentage = 0;
-    public WalletPassenger(String name, int passengerNo){
+    public WalletPassenger(String name, String passengerNo){
         super(name, passengerNo);
     }
     public double getBalance() {

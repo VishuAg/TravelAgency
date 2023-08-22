@@ -4,7 +4,7 @@ import com.travel.TravelPackage.Activity;
 
 public class PremiumPassenger extends Passenger {
     int discountPercentage = 100;
-    public PremiumPassenger(String name, int passengerNo){
+    public PremiumPassenger(String name, String passengerNo){
        super(name, passengerNo);
         
     }

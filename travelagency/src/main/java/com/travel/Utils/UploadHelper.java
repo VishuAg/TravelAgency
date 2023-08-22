@@ -1,20 +1,29 @@
 package com.travel.Utils;
-
-import java.util.ArrayList;
-
+import java.util.HashMap;
+import com.travel.Passenger.Passenger;
+import com.travel.Passenger.StandardPassenger;
+import com.travel.Passenger.PassengerUtil.PassengerFactory;
+import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.Destination;
 import com.travel.TravelPackage.Itinerary;
 import com.travel.TravelPackage.TravelPackage;
 
 public class UploadHelper {
-    public static ArrayList<TravelPackage> getPackages(){
-        ArrayList<TravelPackage> travelPackages=new ArrayList<>();
+    public static HashMap<Integer, TravelPackage> getPackages(){
+        HashMap<Integer, TravelPackage>  travelPackages=new HashMap<Integer, TravelPackage>();
         TravelPackage travelPackage = new TravelPackage(1, "Package 1", 10);
         Itinerary it =new Itinerary(1);
         Destination d =new Destination(1,"Delhi");
         it.addDestination(d);
         travelPackage.addItinerary(it);
-        travelPackages.add(travelPackage);
+        travelPackages.put(1, travelPackage);
         return travelPackages;
+    }
+    public static HashMap<String, Passenger> getPassengers(){
+        HashMap<String, Passenger> registeredPassengers=new HashMap<>();
+        StandardPassenger p = (StandardPassenger)PassengerFactory.getPassenger(PassengerType.STANDARD, "Vishnu", "9165292821");
+        p.addBalance(100);
+        registeredPassengers.put(p.getPassengerNo(), p);
+        return registeredPassengers;
     }
 }
