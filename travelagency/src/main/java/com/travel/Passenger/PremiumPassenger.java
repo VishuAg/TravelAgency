@@ -1,6 +1,6 @@
 package com.travel.Passenger;
 
-import com.travel.TravelPackage.TravelPackage;
+import com.travel.TravelPackage.Activity;
 
 public class PremiumPassenger extends Passenger {
     int discountPercentage = 100;
@@ -8,8 +8,9 @@ public class PremiumPassenger extends Passenger {
        super(name, passengerNo);
         
     }
-    public void bookPackage(TravelPackage tp){
-
+    public void bookActivity(Activity a){
+        addActivity(a);
+        return;
     }
     public void viewMyDetails(int passengerNo){
 

@@ -1,4 +1,9 @@
-package com.travel.Passenger;
+package com.travel.Passenger.PassengerUtil;
+
+import com.travel.Passenger.GoldPassenger;
+import com.travel.Passenger.Passenger;
+import com.travel.Passenger.PremiumPassenger;
+import com.travel.Passenger.StandardPassenger;
 
 public class PassengerFactory{
 

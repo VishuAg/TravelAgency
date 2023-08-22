@@ -1,13 +1,13 @@
 package com.travel.TravelPackage;
 
-public class Acitivity {
+public class Activity {
     private int activityId;
     private String name;
     private String description;
-    private int cost;
+    private double cost;
     private int capacity;
     private int destinationId;
-    public Acitivity(int activityId, String name, String desc, int cost, int capacity){
+    public Activity(int activityId, String name, String desc, double cost, int capacity){
         this.activityId = activityId;
         this.name = name;
         this.description = desc;
@@ -20,7 +20,7 @@ public class Acitivity {
     public int getCapacity() {
         return capacity;
     }
-    public int getCost() {
+    public double getCost() {
         return cost;
     }
     public String getDescription() {
@@ -37,5 +37,8 @@ public class Acitivity {
             this.destinationId = destinationId;
         }
         return;
+    }
+    public void reduceCapacity(){
+        this.capacity = this.capacity -1;
     }
 }
