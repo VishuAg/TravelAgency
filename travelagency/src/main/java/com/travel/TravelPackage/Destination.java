@@ -1,17 +1,17 @@
 package com.travel.TravelPackage;
+import java.util.HashMap;
 
-import java.util.ArrayList;
+import com.travel.Utils.PrintHelper;
 
 public class Destination {
     int destinationId;
     String name;
-    ArrayList<Activity> activities;
+    HashMap<Integer, Activity> activities;
     public Destination(int destinationId, String name){
-        this.destinationId = destinationId;
         this.name = name;
-        this.activities = new ArrayList<>();
+        this.activities = new HashMap<>();
     }
-    public ArrayList<Activity> getActivities() {
+    public HashMap<Integer,Activity> getActivities() {
         return activities;
     }
     public int getDestinationId() {
@@ -20,7 +20,11 @@ public class Destination {
     public String getName() {
         return name;
     }
-    public void addActivities(Activity ac){
-        this.activities.add(ac);
+    public void addActivities(int activityId, Activity ac){
+        this.activities.put(activityId, ac);
+    }
+    public void showActivites(){
+        PrintHelper.printActivities(activities);
+        return;
     }
 }

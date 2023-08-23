@@ -1,16 +1,18 @@
 package com.travel;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 
 import com.travel.Passenger.Passenger;
+import com.travel.Passenger.StandardPassenger;
+import com.travel.Passenger.PassengerUtil.PassengerFactory;
+import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.TravelPackage;
-import com.travel.Utils.ExecuteOperationHelper;
+import com.travel.Utils.OperationHelper;
 import com.travel.Utils.PrintHelper;
 import com.travel.Utils.UploadHelper;
 
 public class TravelAgency {
+    private Scanner sc = new Scanner(System.in);
     private HashMap<Integer, TravelPackage> travelPackages;
     private HashMap<String, Passenger> registeredPassengers;
     public TravelAgency(){
@@ -23,6 +25,12 @@ public class TravelAgency {
     private void populatePassengers(){
         registeredPassengers = UploadHelper.getPassengers();
     }
+    public void start(){
+            PrintHelper.viewMainMenu();
+            int operation = sc.nextInt();
+            OperationHelper.execute(this, operation);
+    }
+
     public HashMap<String, Passenger> getRegisteredPassengers() {
         return registeredPassengers;
     }
@@ -31,16 +39,13 @@ public class TravelAgency {
     }
     public void viewPackages(){
         PrintHelper.printPackages(travelPackages);
+        start();
         return;
     }
-    public void start(){
-        Scanner sc = new Scanner(System.in);
-        while(true){
-            PrintHelper.designPage();
-            int operation = sc.nextInt();
-            ExecuteOperationHelper.execute(this, operation);
-        }
-       
-        
+    public void registerPassengerToTravelAgency(){
+        String passengerName = sc.nextLine();
+        String passengerNo = sc.nextLine();
+        Passenger p = (StandardPassenger)PassengerFactory.getPassenger(PassengerType.STANDARD,passengerName, passengerNo);
+        registeredPassengers.put(registeredPassengers.size()+"", p);
     }
 }
