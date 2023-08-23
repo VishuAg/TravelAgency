@@ -4,6 +4,7 @@ import com.travel.Passenger.Passenger;
 import com.travel.Passenger.StandardPassenger;
 import com.travel.Passenger.PassengerUtil.PassengerFactory;
 import com.travel.Passenger.PassengerUtil.PassengerType;
+import com.travel.TravelPackage.Activity;
 import com.travel.TravelPackage.Destination;
 import com.travel.TravelPackage.TravelPackage;
 
@@ -12,6 +13,8 @@ public class UploadHelper {
         HashMap<Integer, TravelPackage>  travelPackages=new HashMap<Integer, TravelPackage>();
         TravelPackage travelPackage = new TravelPackage("Package 1", 10);
         Destination d =new Destination(1,"Delhi");
+        Activity a =new Activity(1,"Bungee Jumping", "Jump From Top of the world", 80, 20);
+        d.addActivities(1, a);
         travelPackage.addDestinationToPackage(1, d);
         travelPackages.put(1, travelPackage);
         return travelPackages;

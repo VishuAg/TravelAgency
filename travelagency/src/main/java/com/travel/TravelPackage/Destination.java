@@ -27,4 +27,7 @@ public class Destination {
         PrintHelper.printActivities(activities);
         return;
     }
+    public Activity getActivityById(int activityId){
+        return this.activities.get(activityId);
+    }
 }

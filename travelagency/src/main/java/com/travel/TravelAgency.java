@@ -31,7 +31,7 @@ public class TravelAgency {
             OperationHelper.execute(this, operation);
     }
 
-    public HashMap<String, Passenger> getRegisteredPassengers() {
+    public HashMap<String, Passenger> getAllRegisteredPassengers() {
         return registeredPassengers;
     }
     public HashMap<Integer, TravelPackage> getTravelPackages() {
@@ -42,10 +42,17 @@ public class TravelAgency {
         start();
         return;
     }
-    public void registerPassengerToTravelAgency(){
+    public String registerPassengerToTravelAgency(){
+        System.out.println("\n Enter Passenger Name");
         String passengerName = sc.nextLine();
+        System.out.println("\n Enter Passenger No");
         String passengerNo = sc.nextLine();
         Passenger p = (StandardPassenger)PassengerFactory.getPassenger(PassengerType.STANDARD,passengerName, passengerNo);
-        registeredPassengers.put(registeredPassengers.size()+"", p);
+        registeredPassengers.put(passengerNo, p);
+        System.out.println("\nPassenger is registered");
+        return passengerNo;
+    }
+    public Passenger getRegisteredPassengerById(String passengerNo){
+        return this.registeredPassengers.get(passengerNo);
     }
 }
