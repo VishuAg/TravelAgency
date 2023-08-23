@@ -19,12 +19,13 @@ public class OperationHelper{
             break;
             case 2: openPassengerPortal(travelAgency);
             break;
-            case 3: 
+            case 3: travelAgency.getRegisteredPassengerById(passengerNo).viewMyDetails();
+            openRegisteredPassengersPortal(travelAgency, passengerNo);
             default: System.out.println("\nEnter valid input");
             travelAgency.start();
             case 4:
-            String passenger =  travelAgency.registerPassengerToTravelAgency();
-            openRegisteredPassengersPortal(travelAgency, passenger);
+            passengerNo =  travelAgency.registerPassengerToTravelAgency();
+            openRegisteredPassengersPortal(travelAgency, passengerNo);
             break;
             case 5: showDestinationsToPassenger(travelAgency, passengerNo);
             case 6:

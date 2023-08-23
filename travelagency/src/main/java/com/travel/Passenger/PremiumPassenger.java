@@ -12,7 +12,7 @@ public class PremiumPassenger extends Passenger {
         addActivity(a);
         return;
     }
-    public void viewMyDetails(int passengerNo){
-
+    public void viewMyDetails(){
+        System.out.println(passengerNo);
     }
 }

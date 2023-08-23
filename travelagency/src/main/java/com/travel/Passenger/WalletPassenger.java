@@ -39,7 +39,8 @@ public abstract class WalletPassenger extends Passenger{
         this.setBalance(this.getBalance() - cost * (1 - this.discountPercentage / 100));
         return;
      }
-     public void viewMyDetails(int passengerNo) {
-
+     public void viewMyDetails() {
+         System.out.println(passengerNo);
+         return;
      }
 }
