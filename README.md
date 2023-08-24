@@ -6,6 +6,8 @@ A Software system that allows travel agencies to maintain their travel packages'
 - [Project Overview](#project-overview)
 - [Installation](#installation)
 - [Features](#features)
+- [High Level Design](#HighLevelDesign)
+- [Low Level Design](#LowLevelDesign)
 
 ## Project Overview
 
@@ -32,4 +34,10 @@ Provide step-by-step instructions on how to install the project, including any d
 
 
 
+## High Level Design
+Users can check the high-level design using the below link
+https://drive.google.com/file/d/1xg_psJpN60eoabDlMZEk4yIMRg5KXMRP/view?usp=sharing
 
+## Low Level Design
+Users can check the low-level design using the below link
+https://drive.google.com/file/d/1xuzxXyclnBemhnpe1G9CEGvnCt0kxPjb/view?usp=sharing
