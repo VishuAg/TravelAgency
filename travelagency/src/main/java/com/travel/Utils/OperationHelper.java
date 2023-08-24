@@ -29,10 +29,10 @@ public class OperationHelper{
             break;
             case 5: showDestinationsToPassenger(travelAgency, passengerNo);
             break;
-            case 6: TravelPackage.showPackageDetails();
+            case 6: travelAgency.getPackageDetails();
+            travelAgency.start();
             break;
-            case 7: Activity.showAvailableActivities();
-            break;
+            case 7: travelAgency.showAvailableActivities();
             case 8: travelAgency.start();
             break;
             case 9: System.exit(0);
@@ -78,6 +78,11 @@ public class OperationHelper{
         System.out.println("\nEnter Package Number");
         int packageNo = sc.nextInt();
         TravelPackage travelPackage = travelAgency.getTravelPackages().get(packageNo);
+        if(travelPackage.getCapacity() == 0){
+            System.out.println("Capacity Full");
+            openRegisteredPassengersPortal(travelAgency, passengerNo);
+            return;
+        }
         travelPackage.showDestinations();
         System.out.println("\nSelect Destinations Id");
         int destinationId = sc.nextInt();
@@ -87,7 +92,10 @@ public class OperationHelper{
         int activityId = sc.nextInt();
         Passenger p = travelAgency.getRegisteredPassengerById(passengerNo);
         Activity a = destination.getActivityById(activityId);
-        p.bookActivity(a);
+        if(p.bookActivity(a)){
+            travelPackage.addPassengerToPackage(p);
+            travelPackage.reduceCapacity();
+        }
         openRegisteredPassengersPortal(travelAgency, passengerNo);
     }
 

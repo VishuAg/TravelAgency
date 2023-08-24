@@ -25,6 +25,9 @@ public class TravelPackage {
     public String getName() {
         return name;
     }
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
     public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
@@ -41,7 +44,10 @@ public class TravelPackage {
     public Destination getDestinationById(int destinationId){
         return this.getAllDestination().get(destinationId);
     }
-    public static void showPackageDetails(){
-
+    public void showPackageDetails(){
+        PrintHelper.printPackageDetails(this);
+    }
+    public void reduceCapacity(){
+        this.setCapacity(this.getCapacity()-1);
     }
 }

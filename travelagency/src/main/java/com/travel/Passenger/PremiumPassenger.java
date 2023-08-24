@@ -1,5 +1,6 @@
 package com.travel.Passenger;
 
+import com.travel.Passenger.PassengerUtil.ActivityDetails;
 import com.travel.TravelPackage.Activity;
 import com.travel.Utils.PrintHelper;
 
@@ -10,9 +11,12 @@ public class PremiumPassenger extends Passenger {
        super(name, passengerNo);
         
     }
-    public void bookActivity(Activity a){
-        addActivity(a);
-        return;
+    public boolean bookActivity(Activity a){
+        if(addActivity(a)){
+             this.activities.put(a.getActivityId(),new ActivityDetails(0, a));
+             return true;
+        }
+        return false;
     }
     public void viewMyDetails(){
        printPassengerDetails();
@@ -27,6 +31,6 @@ public class PremiumPassenger extends Passenger {
         System.out.println("\t\tPassenger Name: "+this.getName() +
                      " Passenger no : " + this.getPassengerNo());
         
-        PrintHelper.printActivities(this.getActivities());
+        PrintHelper.printActivitiesEnrolledByPassenger(this.getActivities());
     }
 }

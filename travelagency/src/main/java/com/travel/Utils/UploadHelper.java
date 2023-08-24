@@ -27,7 +27,7 @@ public class UploadHelper {
             Object obj = parser.parse(new FileReader("travelagency/src/data/Passengers.json"));
             JSONObject passengerObject = new JSONObject();
             JSONArray passengers = (JSONArray) obj;
-            Iterator passengersIterator = passengers.iterator();
+            Iterator<JSONObject> passengersIterator = passengers.iterator();
             while (passengersIterator.hasNext()) {
                 passengerObject = (JSONObject) (passengersIterator.next());
                 String passengerNo = (String)passengerObject.get("passengerNo");
@@ -52,14 +52,13 @@ public class UploadHelper {
             JSONObject destinationObject = new JSONObject();
             JSONObject activityObject = new JSONObject();
             TravelPackage travelPackage;
-            Destination d;
-            Activity a;
+            Destination dest;
             JSONArray packages = (JSONArray) obj;
-            Iterator packageIterator = packages.iterator();
-            Iterator destinationIterator;
-            Iterator activityIterator;
+            Iterator<JSONObject> packageIterator = packages.iterator();
+            Iterator<JSONObject> destinationIterator;
+            Iterator<JSONObject> activityIterator;
             while (packageIterator.hasNext()) {
-                packageObject = (JSONObject) (packageIterator.next());
+                packageObject = packageIterator.next();
                 String packageName = (String) packageObject.get("name");
                 int packageCapacity = ((Number) packageObject.get("capacity")).intValue();
                 travelPackage = new TravelPackage(packageName,packageCapacity);
@@ -69,7 +68,7 @@ public class UploadHelper {
                     destinationObject = (JSONObject) (destinationIterator.next());
                     int destinationId = ((Number)destinationObject.get("destinationId")).intValue();
                     String name = (String)destinationObject.get("name");
-                Destination dest = new Destination(destinationId, name);
+                dest = new Destination(destinationId, name);
                 travelPackage.addDestinationToPackage(destinationId, dest);
                 JSONArray activity = (JSONArray) destinationObject.get("activities");
                 activityIterator = activity.iterator();
