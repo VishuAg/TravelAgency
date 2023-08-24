@@ -22,7 +22,7 @@ Provide step-by-step instructions on how to install the project, including any d
 ```bash
 1. Open VS Code
 2. Go To Terminal
-3. [git clone https://github.com/your-username/your-project.git](https://github.com/VishuAg/TravelAgency.git)
+3. [git clone (https://github.com/VishuAg/TravelAgency.git](https://github.com/VishuAg/TravelAgency.git)
 4. cd TravelAgeny
 5. Wait for java project to get build by maven.
 6. To the left bottom side of VS Code. Click on run on the project travelagency
