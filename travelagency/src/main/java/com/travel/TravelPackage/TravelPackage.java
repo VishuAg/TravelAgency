@@ -41,4 +41,7 @@ public class TravelPackage {
     public Destination getDestinationById(int destinationId){
         return this.getAllDestination().get(destinationId);
     }
+    public static void showPackageDetails(){
+
+    }
 }

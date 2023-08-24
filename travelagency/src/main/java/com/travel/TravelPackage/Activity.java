@@ -42,4 +42,7 @@ public class Activity {
     public void reduceCapacity(){
         this.capacity = this.capacity -1;
     }
+    public static void showAvailableActivities(){
+        
+    }
 }

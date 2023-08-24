@@ -9,7 +9,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import com.travel.Passenger.Passenger;
-import com.travel.Passenger.StandardPassenger;
 import com.travel.Passenger.PassengerUtil.PassengerFactory;
 import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.Activity;
@@ -22,11 +21,25 @@ public class UploadHelper {
     }
 
     public static HashMap<String, Passenger> getPassengers() {
+        JSONParser parser = new JSONParser();
         HashMap<String, Passenger> registeredPassengers = new HashMap<>();
-        StandardPassenger p = (StandardPassenger) PassengerFactory.getPassenger(PassengerType.STANDARD, "Vishnu",
-                "9165292821");
-        p.addBalance(100);
-        registeredPassengers.put(p.getPassengerNo(), p);
+        try {
+            Object obj = parser.parse(new FileReader("travelagency/src/data/Passengers.json"));
+            JSONObject passengerObject = new JSONObject();
+            JSONArray passengers = (JSONArray) obj;
+            Iterator passengersIterator = passengers.iterator();
+            while (passengersIterator.hasNext()) {
+                passengerObject = (JSONObject) (passengersIterator.next());
+                String passengerNo = (String)passengerObject.get("passengerNo");
+                String name = (String)passengerObject.get("name");
+                String passengerType = (String)passengerObject.get("type");
+                PassengerType pt =Passenger.getPassengerType(passengerType);
+                Passenger p = PassengerFactory.getPassenger(pt, name, passengerNo);
+                registeredPassengers.put(p.getPassengerNo(), p);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return registeredPassengers;
     }
 
@@ -73,7 +86,7 @@ public class UploadHelper {
              travelPackage.addDestinationToPackage(destinationId, dest);
            
         }
-         travelPackages.put(travelPackages.size(), travelPackage);
+         travelPackages.put(travelPackages.size()+1, travelPackage);
     }
         } catch (Exception e) {
             e.printStackTrace();

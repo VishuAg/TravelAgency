@@ -21,17 +21,24 @@ public class OperationHelper{
             break;
             case 3: travelAgency.getRegisteredPassengerById(passengerNo).viewMyDetails();
             openRegisteredPassengersPortal(travelAgency, passengerNo);
-            default: System.out.println("\nEnter valid input");
-            travelAgency.start();
+            break;
+            
             case 4:
             passengerNo =  travelAgency.registerPassengerToTravelAgency();
             openRegisteredPassengersPortal(travelAgency, passengerNo);
             break;
             case 5: showDestinationsToPassenger(travelAgency, passengerNo);
-            case 6:
-            case 7: travelAgency.start();
-            case 8: System.exit(0);
             break;
+            case 6: TravelPackage.showPackageDetails();
+            break;
+            case 7: Activity.showAvailableActivities();
+            break;
+            case 8: travelAgency.start();
+            break;
+            case 9: System.exit(0);
+            break;
+            default: System.out.println("\nEnter valid input");
+            travelAgency.start();
 
         }
     }
@@ -51,7 +58,6 @@ public class OperationHelper{
             showMenuToRegisteredPassenger(travelAgency);
             int operation = sc.nextInt();
             execute(travelAgency, operation, passengerNo);
-            // showDestinationsToPassenger(travelAgency, passengerNo);
         }
 
     public static boolean isRegisteredPassenger(TravelAgency travelAgency, String passengerNo){
@@ -82,7 +88,6 @@ public class OperationHelper{
         Passenger p = travelAgency.getRegisteredPassengerById(passengerNo);
         Activity a = destination.getActivityById(activityId);
         p.bookActivity(a);
-        System.out.println("\nAdded successfully");
         openRegisteredPassengersPortal(travelAgency, passengerNo);
     }
 

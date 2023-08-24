@@ -1,10 +1,11 @@
 package com.travel.Passenger;
 
 import com.travel.TravelPackage.Activity;
+import com.travel.Utils.PrintHelper;
 
 public abstract class WalletPassenger extends Passenger{
-    private double balance = 0;
-    private double discountPercentage = 0;
+    private double balance = 100;
+    private final double discountPercentage = 0;
     public WalletPassenger(String name, String passengerNo){
         super(name, passengerNo);
     }
@@ -40,8 +41,13 @@ public abstract class WalletPassenger extends Passenger{
         return;
      }
      public void viewMyDetails() {
-         System.out.println(passengerNo);
-         System.out.println(this.activities.get(0).getName());
-         return;
+        printPassengerDetails();
      }
+
+     public void printPassengerDetails(){
+        System.out.println("\t\tPassenger Name: "+this.getName() +
+                     " Passenger no : " + this.getPassengerNo() + " Balance: "+this.getBalance());
+        
+        PrintHelper.printActivities(this.getActivities());
+    }
 }

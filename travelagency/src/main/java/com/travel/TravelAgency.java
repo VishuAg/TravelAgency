@@ -44,9 +44,9 @@ public class TravelAgency {
     }
     public String registerPassengerToTravelAgency(){
         System.out.println("\n Enter Passenger Name");
-        String passengerName = sc.nextLine();
+        String passengerName = sc.next();
         System.out.println("\n Enter Passenger No");
-        String passengerNo = sc.nextLine();
+        String passengerNo = sc.next();
         Passenger p = (StandardPassenger)PassengerFactory.getPassenger(PassengerType.STANDARD,passengerName, passengerNo);
         registeredPassengers.put(passengerNo, p);
         System.out.println("\nPassenger is registered");

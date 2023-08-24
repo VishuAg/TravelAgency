@@ -1,7 +1,7 @@
 package com.travel.Passenger;
 public class StandardPassenger extends WalletPassenger{
-    double discountPercentage = 0.0;
-    double balance = 0;
+    private final double discountPercentage = 0.0;
+    double balance = 100;
     public StandardPassenger(String name, String passengerNo){
        super(name, passengerNo);
     }
