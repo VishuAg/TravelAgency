@@ -26,6 +26,7 @@ Provide step-by-step instructions on how to install the project, including any d
 4. cd TravelAgeny
 5. Wait for java project to get build by maven.
 6. To the left bottom side of VS Code. Click on run on the project travelagency
+```
 ![CA9F0551-CAF6-4251-A8E3-7DB2EA0E3374](https://github.com/VishuAg/TravelAgency/assets/24971214/ea31ff63-f93b-4cdb-8e15-62a1668fa122)
 
 
