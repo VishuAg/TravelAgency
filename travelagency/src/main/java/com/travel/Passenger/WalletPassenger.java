@@ -6,7 +6,6 @@ import com.travel.Utils.PrintHelper;
 
 public abstract class WalletPassenger extends Passenger{
     private double balance = 100;
-    private final double discountPercentage = 0;
     public WalletPassenger(String name, String passengerNo){
         super(name, passengerNo);
     }
@@ -19,6 +18,7 @@ public abstract class WalletPassenger extends Passenger{
     public void addBalance(double amount){
       this.balance=this.balance + amount;
     }
+    public abstract double getDiscountPercentage();
     public boolean bookActivity(Activity activity) {
         double cost = activity.getCost();
         if (!hasSufficientBalance(cost)) {
@@ -34,14 +34,14 @@ public abstract class WalletPassenger extends Passenger{
      }
   
      public boolean hasSufficientBalance(double cost) {
-        if (cost * (1 - this.discountPercentage / 100) > this.getBalance()) {
+        if (cost * (1 - this.getDiscountPercentage() / 100) > this.getBalance()) {
            return false;
         }
         return true;
      }
   
      public double deductBalance(double cost) {
-      double costToPassenger =  cost * (1 - this.discountPercentage / 100);
+      double costToPassenger =  cost * (1 - this.getDiscountPercentage() / 100);
         this.setBalance(this.getBalance() - costToPassenger);
         return costToPassenger;
      }
