@@ -1,6 +1,5 @@
 package com.travel.TravelPackage;
 import java.util.HashMap;
-
 import com.travel.Utils.PrintHelper;
 
 public class Destination {
@@ -9,6 +8,7 @@ public class Destination {
     HashMap<Integer, Activity> activities;
     public Destination(int destinationId, String name){
         this.name = name;
+        this.destinationId = destinationId;
         this.activities = new HashMap<>();
     }
     public HashMap<Integer,Activity> getActivities() {

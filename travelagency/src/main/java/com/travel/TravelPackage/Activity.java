@@ -7,12 +7,13 @@ public class Activity {
     private double cost;
     private int capacity;
     private int destinationId;
-    public Activity(int activityId, String name, String desc, double cost, int capacity){
+    public Activity(int activityId, String name, String desc, double cost, int capacity, int destinationId){
         this.activityId = activityId;
         this.name = name;
         this.description = desc;
         this.cost = cost;
         this.capacity = capacity;
+        this.destinationId = destinationId;
     }
     public int getActivityId() {
         return activityId;

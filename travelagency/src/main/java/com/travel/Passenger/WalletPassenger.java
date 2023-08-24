@@ -41,6 +41,7 @@ public abstract class WalletPassenger extends Passenger{
      }
      public void viewMyDetails() {
          System.out.println(passengerNo);
+         System.out.println(this.activities.get(0).getName());
          return;
      }
 }
