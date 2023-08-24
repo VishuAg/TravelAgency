@@ -1,6 +1,9 @@
 package com.travel;
-
+import com.travel.TravelAgency;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
 
@@ -13,8 +16,10 @@ public class AppTest
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
+    public void shouldCheckForStart()
     {
-        assertTrue( true );
+        TravelAgency mockTravelAgency = mock(TravelAgency.class);
+        mockTravelAgency.start();
+        verify(mockTravelAgency, times(1)).start();
     }
 }

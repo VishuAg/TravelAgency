@@ -1,65 +1,40 @@
 package com.travel.Utils;
 
+import com.travel.Passenger.Passenger;
+import com.travel.TravelPackage.TravelPackage;
+import org.junit.Before;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import java.util.ArrayList;
 
 public class PrintHelperTest {
-    @Test
-    public void testPrintActivities() {
 
-    }
+    private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-    @Test
-    public void testPrintActivitiesEnrolledByPassenger() {
-
-    }
-
-    @Test
-    public void testPrintDestinationDetails() {
-
-    }
-
-    @Test
-    public void testPrintDestinations() {
-
+    @Before
+    public void setUp() {
+        System.setOut(new PrintStream(outputStream));
     }
 
     @Test
     public void testPrintPackageDetails() {
+        TravelPackage travelPackage = mock(TravelPackage.class);
+        when(travelPackage.getName()).thenReturn("Vacation Package");
+        when(travelPackage.getCapacity()).thenReturn(10);
+        when(travelPackage.getPassengers()).thenReturn(new ArrayList<Passenger>());
 
-    }
-
-    @Test
-    public void testPrintPackageDetails2() {
-
-    }
-
-    @Test
-    public void testPrintPackages() {
-
+        PrintHelper.printPackageDetails(travelPackage);
     }
 
     @Test
     public void testPrintPassengerDetails() {
+        Passenger passenger = mock(Passenger.class);
+        when(passenger.getPassengerNo()).thenReturn("P123");
+        when(passenger.getName()).thenReturn("Alice Johnson");
 
-    }
-
-    @Test
-    public void testPrintPassengers() {
-
-    }
-
-    @Test
-    public void testViewMainMenu() {
-
-    }
-
-    @Test
-    public void testViewMenuToRegisteredPassenger() {
-
-    }
-
-    @Test
-    public void testViewMenuToUnRegisteredPassenger() {
-
+        PrintHelper.printPassengerDetails(passenger);
     }
 }
