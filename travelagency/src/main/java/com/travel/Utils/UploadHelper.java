@@ -42,7 +42,7 @@ public class UploadHelper {
         JSONParser parser = new JSONParser();
         HashMap<String, Passenger> registeredPassengers = new HashMap<>();
         try {
-            Object obj = parser.parse(new FileReader("travelagency/src/main/resources/data/Passengers.json"));
+            Object obj = parser.parse(new FileReader("src/main/resources/data/Passengers.json"));
             JSONObject passengerObject = new JSONObject();
             JSONArray passengers = (JSONArray) obj;
             Iterator<JSONObject> passengersIterator = passengers.iterator();
@@ -72,7 +72,7 @@ public class UploadHelper {
         JSONParser parser = new JSONParser();
         HashMap<Integer, TravelPackage> travelPackages = new HashMap<>();
         try {
-            Object obj = parser.parse(new FileReader("travelagency/src/main/resources/data/TravelPackages.json"));
+            Object obj = parser.parse(new FileReader("src/main/resources/data/TravelPackages.json"));
             JSONObject packageObject = new JSONObject();
             JSONObject destinationObject = new JSONObject();
             JSONObject activityObject = new JSONObject();
