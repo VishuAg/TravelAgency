@@ -9,7 +9,7 @@ public class ActivityDetails {
         this.cost = cost;
         this.activity = a;
     }
-    public Activity geActivity() {
+    public Activity getActivity() {
         return activity;
     }
     public double getCost() {

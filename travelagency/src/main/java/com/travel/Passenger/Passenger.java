@@ -6,41 +6,100 @@ import com.travel.Passenger.PassengerUtil.ActivityDetails;
 import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.Activity;
 
+/**
+ * The class Abstract passenger
+ */
 public abstract class Passenger {
     String name;
     String passengerNo;
     HashMap<Integer, ActivityDetails> activities;
-    public Passenger(String name, String passengerNo){
-        this.name=name;
-        this.passengerNo=passengerNo;
+
+    /**
+     *
+     * Passenger
+     *
+     * @param name        the name.
+     * @param passengerNo the passenger number.
+     */
+    public Passenger(String name, String passengerNo) {
+
+        this.name = name;
+        this.passengerNo = passengerNo;
         this.activities = new HashMap<>();
     }
+
+    /**
+     *
+     * Book activity
+     *
+     * @param a the a.
+     * @return boolean
+     */
     public abstract boolean bookActivity(Activity a);
+
     public abstract void viewMyDetails();
-    public boolean addActivity(Activity a){
+
+    public boolean addActivity(Activity a) {
+
         int capacity = a.getCapacity();
-        if(capacity==0){
+        if (capacity == 0) {
             System.out.println("Capacity Full");
             return false;
         }
         a.reduceCapacity();
         System.out.println("Added successfully");
         return true;
-      }
-      public String getPassengerNo() {
-          return passengerNo;
-      }
-      public String getName() {
-          return name;
-      }
-      public HashMap<Integer, ActivityDetails> getActivities() {
-          return activities;
-      }
-      public static PassengerType getPassengerType(String passengerType){
-        switch(passengerType){
-            case "GOLD": return PassengerType.GOLD;
-            case "PREMIUM": return PassengerType.PREMIUM;
-            default: return PassengerType.STANDARD;
+    }
+
+    /**
+     *
+     * Gets the passenger number
+     *
+     * @return the passenger number
+     */
+    public String getPassengerNo() {
+
+        return passengerNo;
+    }
+
+    /**
+     *
+     * Gets the name
+     *
+     * @return the name
+     */
+    public String getName() {
+
+        return name;
+    }
+
+    /**
+     *
+     * Gets the activities
+     *
+     * @return the activities
+     */
+    public HashMap<Integer, ActivityDetails> getActivities() {
+
+        return activities;
+    }
+
+    /**
+     *
+     * Gets the passenger type
+     *
+     * @param passengerType the passenger type.
+     * @return the passenger type
+     */
+    public static PassengerType getPassengerType(String passengerType) {
+
+        switch (passengerType) {
+            case "GOLD":
+                return PassengerType.GOLD;
+            case "PREMIUM":
+                return PassengerType.PREMIUM;
+            default:
+                return PassengerType.STANDARD;
         }
-      }
+    }
 }

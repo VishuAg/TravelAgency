@@ -5,16 +5,28 @@ import com.travel.Passenger.Passenger;
 import com.travel.Passenger.PremiumPassenger;
 import com.travel.Passenger.StandardPassenger;
 
-public class PassengerFactory{
+/**
+ * The class Passenger factory
+ */
+public class PassengerFactory {
 
-    public static Passenger getPassenger(PassengerType pt, String name, String passengerNo){
-        if(pt == PassengerType.GOLD){
+    /**
+     *
+     * Gets the passenger
+     *
+     * @param pt          the passenger Type.
+     * @param name        the name.
+     * @param passengerNo the passenger number.
+     * @return the passenger
+     */
+    public static Passenger getPassenger(PassengerType pt, String name, String passengerNo) {
+
+        if (pt == PassengerType.GOLD) {
             return new GoldPassenger(name, passengerNo);
-        }
-        else if(pt == PassengerType.PREMIUM){
+        } else if (pt == PassengerType.PREMIUM) {
             return new PremiumPassenger(name, passengerNo);
-        }
-        else return new StandardPassenger(name, passengerNo);
+        } else
+            return new StandardPassenger(name, passengerNo);
     }
-    
+
 }

@@ -1,12 +1,19 @@
 package com.travel;
+
 /**
- * Hello world!
+ * WELCOME TO TRAVEL AGENCY
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
+public class App {
+
+    /**
+     *
+     * Main
+     *
+     * @param args the args.
+     */
+    public static void main(String[] args) {
+
         TravelAgency travelAgency = new TravelAgency();
         travelAgency.start();
     }
