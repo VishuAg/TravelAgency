@@ -5,16 +5,18 @@ A Software system that allows travel agencies to maintain their travel packages'
 
 - [Project Overview](#project-overview)
 - [Installation](#installation)
-- [Features](#features)
 - [High Level Design](#HighLevelDesign)
 - [Low Level Design](#LowLevelDesign)
+- [Scope of Improvement](%ScopeOfImprovement)
 
 ## Project Overview
 
 1. The user can print the itinerary of the travel package.
 2. The user can print the passenger list of the travel package.
 3. The user can print the details of an individual passenger including their name, passenger number, balance (if applicable), list of each activity they have signed up for, including the destination at which the activity is taking place and the price the passenger paid for the activity.
-4. User can print the details of all the activities that still have spaces available, including how many spaces are available.
+4. The user can print the details of all the activities that still have spaces available, including how many spaces are available.
+5. The user can register through the app.
+6. The User can book the activity/Packages.
 
 
 ## Installation
@@ -28,6 +30,25 @@ https://drive.google.com/file/d/1xg_psJpN60eoabDlMZEk4yIMRg5KXMRP/view?usp=shari
 ## Low Level Design
 Users can check the low-level design using the below link
 https://drive.google.com/file/d/1xuzxXyclnBemhnpe1G9CEGvnCt0kxPjb/view?usp=sharing
+
+## Scope of Improvement
+The project developed is a basic project that covers the basic functionality mentioned in the Project Overview. There is a lot of scope of improvement that can be done in the project. At present, it is not done because of time constraint.
+The below points will give a brief picture of what can be improved.
+
+Functional Improvements
+
+1. Passengers can add money to their wallets.
+2. Passengers can take a premium/gold plan.
+3. The passenger can cancel the package he has booked.
+4. Passengers can enter no of people they want to book at a time.
+5. Travel Agencies can add Packages and Itineraries through the app.
+6. Travel agencies can modify packages and itineraries through the app.
+   
+Technical Improvements
+
+1. A More Standard Design pattern-like strategy can be used to avoid passing arguments to the functions.
+2. Unit Test coverage can be improved.
+3. SOLID Principles can be used in a more strict manner.
 
 ##
 
