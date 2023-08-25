@@ -59,7 +59,7 @@ public class PrintHelper {
 
         System.out.println("\nWELCOME TO TRAVEL AGENCY");
         System.out.println("1. View Packages");
-        System.out.println("3. View My Profile");
+        System.out.println("3. View My Bookings");
         System.out.println("5. Enter package number to book a package");
         System.out.println("8. Go Back to Main Menu");
         System.out.println("9. Exit");
