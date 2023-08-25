@@ -88,6 +88,7 @@ public class OperationHelper {
         if (isRegisteredPassenger(travelAgency, passengerNo)) {
             openRegisteredPassengersPortal(travelAgency, passengerNo);
         } else {
+             System.out.println("\nPassenger is not registered. Please register to book");
             showMenuToUnRegisteredPassenger(travelAgency);
         }
         return;
@@ -101,9 +102,11 @@ public class OperationHelper {
      * @param passengerNo  the passenger number.
      */
     public static void openRegisteredPassengersPortal(TravelAgency travelAgency, String passengerNo) {
-
         showMenuToRegisteredPassenger(travelAgency);
         int operation = sc.nextInt();
+         if(!ValidationHelper.validateOperationForRegisteredPassenger(operation)){
+            openRegisteredPassengersPortal(travelAgency, passengerNo);
+        }
         execute(travelAgency, operation, passengerNo);
     }
 
@@ -139,9 +142,12 @@ public class OperationHelper {
      */
     public static void showMenuToUnRegisteredPassenger(TravelAgency travelAgency) {
 
-        System.out.println("\nPassenger is not registered. Please register to book");
+       
         PrintHelper.viewMenuToUnRegisteredPassenger();
         int operation = sc.nextInt();
+        if(!ValidationHelper.validateOperationForUnregisteredPassenger(operation)){
+            showMenuToUnRegisteredPassenger(travelAgency);
+        }
         execute(travelAgency, operation);
     }
 

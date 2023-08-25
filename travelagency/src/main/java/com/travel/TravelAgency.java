@@ -12,6 +12,7 @@ import com.travel.TravelPackage.TravelPackage;
 import com.travel.Utils.OperationHelper;
 import com.travel.Utils.PrintHelper;
 import com.travel.Utils.UploadHelper;
+import com.travel.Utils.ValidationHelper;
 
 /**
  * The class Travel agency
@@ -61,6 +62,9 @@ public class TravelAgency {
 
         PrintHelper.viewMainMenu();
         int operation = sc.nextInt();
+        if(!ValidationHelper.validateOperationAtMainMenu(operation)){
+            start();
+        }
         OperationHelper.execute(this, operation);
     }
 
