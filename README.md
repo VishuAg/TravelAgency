@@ -5,9 +5,9 @@ A Software system that allows travel agencies to maintain their travel packages'
 
 - [Project Overview](#project-overview)
 - [Installation](#installation)
-- [High Level Design](#HighLevelDesign)
-- [Low Level Design](#LowLevelDesign)
-- [Scope of Improvement](%ScopeOfImprovement)
+- [High Level Design](#high-level-design)
+- [Low Level Design](#low-level-design)
+- [Scope of Improvement](#scope-of-improvement)
 
 ## Project Overview
 
