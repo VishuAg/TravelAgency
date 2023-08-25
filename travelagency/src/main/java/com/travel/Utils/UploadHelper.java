@@ -51,7 +51,7 @@ public class UploadHelper {
                 String passengerNo = (String) passengerObject.get("passengerNo");
                 String name = (String) passengerObject.get("name");
                 String passengerType = (String) passengerObject.get("type");
-                PassengerType pt = Passenger.getPassengerType(passengerType);
+                PassengerType pt = PassengerType.valueOf(passengerType);
                 Passenger p = PassengerFactory.getPassenger(pt, name, passengerNo);
                 registeredPassengers.put(p.getPassengerNo(), p);
             }

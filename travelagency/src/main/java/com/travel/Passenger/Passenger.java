@@ -12,6 +12,7 @@ import com.travel.TravelPackage.Activity;
 public abstract class Passenger {
     String name;
     String passengerNo;
+    PassengerType passengerType;
     HashMap<Integer, ActivityDetails> activities;
 
     /**
@@ -39,11 +40,17 @@ public abstract class Passenger {
 
     public abstract void viewMyDetails();
 
+    public abstract PassengerType getPassengerType();
+
     public boolean addActivity(Activity a) {
 
         int capacity = a.getCapacity();
         if (capacity == 0) {
-            System.out.println("Capacity Full");
+            System.out.println("\nCapacity Full");
+            return false;
+        }
+        if(this.getActivityById(a.getActivityId())!=null){
+            System.out.println("\nAlready registered. Please chose another activity");
             return false;
         }
         a.reduceCapacity();
@@ -86,20 +93,16 @@ public abstract class Passenger {
 
     /**
      *
-     * Gets the passenger type
+     * Gets the activities by id
      *
-     * @param passengerType the passenger type.
-     * @return the passenger type
+     * @return the activity
      */
-    public static PassengerType getPassengerType(String passengerType) {
-
-        switch (passengerType) {
-            case "GOLD":
-                return PassengerType.GOLD;
-            case "PREMIUM":
-                return PassengerType.PREMIUM;
-            default:
-                return PassengerType.STANDARD;
+    public Activity getActivityById(int activitiyId){
+        ActivityDetails activityDetails = this.getActivities().get(activitiyId);
+        if(activityDetails!=null){
+            return activityDetails.getActivity();
         }
+        return null;
     }
+
 }

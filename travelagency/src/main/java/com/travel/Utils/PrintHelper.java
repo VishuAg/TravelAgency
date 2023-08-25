@@ -154,7 +154,7 @@ public class PrintHelper {
     public static void printPassengerDetails(Passenger passenger) {
 
         System.out.println(
-                "\n\t Passenger No: " + passenger.getPassengerNo() + " Name : " + passenger.getName() + " ");
+                "\n\t Passenger No: " + passenger.getPassengerNo() + " Name : " + passenger.getName() + " Passenger Type:- " + passenger.getPassengerType().name());
     }
 
     /**

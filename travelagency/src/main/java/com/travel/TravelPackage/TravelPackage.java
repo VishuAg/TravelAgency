@@ -102,10 +102,16 @@ public class TravelPackage {
      * Add passenger to package
      *
      * @param pass the pass.
+     * @return boolean
      */
-    public void addPassengerToPackage(Passenger pass) {
-
-        this.passengers.add(pass);
+    public boolean addPassengerToPackage(Passenger pass) {
+        if(!this.passengers.contains(pass)){
+             this.passengers.add(pass);
+             reduceCapacity();
+             return true;
+        }
+        return false;
+       
     }
 
     /**

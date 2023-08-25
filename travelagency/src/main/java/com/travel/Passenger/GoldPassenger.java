@@ -1,10 +1,13 @@
 package com.travel.Passenger;
 
+import com.travel.Passenger.PassengerUtil.PassengerType;
+
 /**
  * The class Gold passenger extends wallet passenger
  */
 public class GoldPassenger extends WalletPassenger {
    private final double discountPercentage = 10.0;
+   private final PassengerType passengerType = PassengerType.GOLD;
    private double balance = 200;
 
    /**
@@ -37,5 +40,15 @@ public class GoldPassenger extends WalletPassenger {
     */
    public double getBalance() {
       return balance;
+   }
+
+   /**
+    *
+    * get Passenger Type
+    * 
+    * @return passengerType
+    */
+   public PassengerType getPassengerType() {
+      return passengerType;
    }
 }

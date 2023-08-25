@@ -118,7 +118,7 @@ public class TravelAgency {
         Passenger p = (StandardPassenger) PassengerFactory.getPassenger(PassengerType.STANDARD, passengerName,
                 passengerNo);
         registeredPassengers.put(passengerNo, p);
-        System.out.println("\nPassenger is registered");
+        System.out.println("\nPassenger is registered as Standard Passemger and also got a welcome wallet money of 100 points");
         return passengerNo;
     }
 

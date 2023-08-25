@@ -1,6 +1,7 @@
 package com.travel.Utils;
 
 import com.travel.Passenger.Passenger;
+import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.TravelPackage;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,7 +34,8 @@ public class PrintHelperTest {
     public void testPrintPassengerDetails() {
         Passenger passenger = mock(Passenger.class);
         when(passenger.getPassengerNo()).thenReturn("P123");
-        when(passenger.getName()).thenReturn("Alice Johnson");
+        when(passenger.getName()).thenReturn("Vishnu");
+        when(passenger.getPassengerType()).thenReturn(PassengerType.GOLD);
 
         PrintHelper.printPassengerDetails(passenger);
     }

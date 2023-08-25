@@ -1,6 +1,7 @@
 package com.travel.Passenger;
 
 import com.travel.Passenger.PassengerUtil.ActivityDetails;
+import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.Activity;
 import com.travel.Utils.PrintHelper;
 
@@ -58,12 +59,24 @@ public abstract class WalletPassenger extends Passenger {
    /**
     *
     * Gets the discount percentage
-    *
-    * @param bookActivity the book activity. It is public ;
     * @return the discount percentage
     */
    public abstract double getDiscountPercentage();
 
+   /**
+    *get Passenger Type
+    *Abstract function
+    */
+   public abstract PassengerType getPassengerType();
+
+      
+   /**
+    *
+    * Gets the discount percentage
+    *
+    * @param bookActivity the book activity. It is public ;
+    * @return the discount percentage
+    */
    public boolean bookActivity(Activity activity) {
 
       double cost = activity.getCost();
@@ -126,7 +139,7 @@ public abstract class WalletPassenger extends Passenger {
    public void printPassengerDetails() {
 
       System.out.println("\t\tPassenger Name: " + this.getName() +
-            " Passenger no : " + this.getPassengerNo() + " Balance: " + this.getBalance());
+            " Passenger no : " + this.getPassengerNo() + " Balance: " + this.getBalance() + " PassengerType:- "+this.getPassengerType().toString());
 
       PrintHelper.printActivitiesEnrolledByPassenger(this.getActivities());
    }

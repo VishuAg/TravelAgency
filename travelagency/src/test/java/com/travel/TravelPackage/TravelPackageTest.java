@@ -1,6 +1,8 @@
 package com.travel.TravelPackage;
 
 import com.travel.Passenger.Passenger;
+import com.travel.Passenger.PassengerUtil.PassengerType;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -59,7 +61,7 @@ public class TravelPackageTest {
         TravelPackage travelPackage = new TravelPackage("Sample Package", 10);
         travelPackage.addDestinationToPackage(1, mockDestination);
         travelPackage.addPassengerToPackage(mockPassenger);
-
+        when(mockPassenger.getPassengerType()).thenReturn(PassengerType.STANDARD);
         travelPackage.showPackageDetails();
         verify(mockPassenger).getName();
     }

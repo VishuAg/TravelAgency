@@ -1,6 +1,7 @@
 package com.travel.Passenger;
 
 import com.travel.Passenger.PassengerUtil.ActivityDetails;
+import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.Activity;
 import com.travel.Utils.PrintHelper;
 import org.junit.Before;
@@ -34,11 +35,9 @@ public class PremiumPassengerTest {
 
     @Test
     public void testViewMyDetails() {
-        PrintHelper mockPrintHelper = mock(PrintHelper.class);
         HashMap<Integer, ActivityDetails> mockHashMap = spy(new HashMap<Integer, ActivityDetails>());
         premiumPassenger.viewMyDetails();
         PrintHelper.printActivitiesEnrolledByPassenger(mockHashMap);
-        verify(mockPrintHelper, times(1));
     }
 
     @Test

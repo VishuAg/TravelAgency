@@ -181,14 +181,16 @@ public class OperationHelper {
      * @return the destination chosen by passenger
      */
     public static Destination getDestinationChosenByPassenger(TravelPackage travelPackage) {
+        if(travelPackage == null){
+            return null;
+        }
         travelPackage.showDestinations();
         System.out.println("\nSelect Destinations Id");
         int destinationId = sc.nextInt();
         Destination destination = travelPackage.getDestinationById(destinationId);
         if (destination == null) {
             System.out.println("Enter valid Destination Id");
-            getDestinationChosenByPassenger(travelPackage);
-            return null;
+            destination = getDestinationChosenByPassenger(travelPackage);
         }
         return destination;
     }
@@ -201,15 +203,16 @@ public class OperationHelper {
      * @return the activity chosen by passenger
      */
     public static Activity getActivityChosenByPassenger(Destination destination) {
-
+        if(destination == null){
+            return null;
+        }
         System.out.println("\nSelect Activities");
         destination.showActivites();
         int activityId = sc.nextInt();
         Activity activity = destination.getActivityById(activityId);
         if (activity == null) {
             System.out.println("Enter valid Activity Id");
-            getActivityChosenByPassenger(destination);
-            return null;
+            activity = getActivityChosenByPassenger(destination);
         }
         return activity;
     }
@@ -225,11 +228,12 @@ public class OperationHelper {
      */
     public static void bookActivityChosenByPassenger(TravelAgency travelAgency, String passengerNo,
             TravelPackage travelPackage, Activity activity) {
-
+        if(activity == null){
+            return;
+        }
         Passenger p = travelAgency.getRegisteredPassengerById(passengerNo);
         if (p.bookActivity(activity)) {
             travelPackage.addPassengerToPackage(p);
-            travelPackage.reduceCapacity();
         }
     }
 

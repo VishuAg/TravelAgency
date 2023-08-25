@@ -1,6 +1,7 @@
 package com.travel.Passenger;
 
 import com.travel.Passenger.PassengerUtil.ActivityDetails;
+import com.travel.Passenger.PassengerUtil.PassengerType;
 import com.travel.TravelPackage.Activity;
 import com.travel.Utils.PrintHelper;
 
@@ -9,6 +10,7 @@ import com.travel.Utils.PrintHelper;
  */
 public class PremiumPassenger extends Passenger {
     private final int discountPercentage = 100;
+    private final PassengerType passengerType = PassengerType.PREMIUM;
     private final double balance = Double.MAX_VALUE;
 
     /**
@@ -80,8 +82,17 @@ public class PremiumPassenger extends Passenger {
     public void printPassengerDetails() {
 
         System.out.println("\t\tPassenger Name: " + this.getName() +
-                " Passenger no : " + this.getPassengerNo());
+                " Passenger no : " + this.getPassengerNo() + " Passenger Type:- "+ this.getPassengerType().name());
 
         PrintHelper.printActivitiesEnrolledByPassenger(this.getActivities());
+    }
+
+    /**
+     *
+     * get Passenger Type
+     * @return passengerType
+     */
+    public PassengerType getPassengerType() {
+        return passengerType;
     }
 }
